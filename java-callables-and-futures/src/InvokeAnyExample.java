@@ -28,5 +28,7 @@ public class InvokeAnyExample {
         String result = executorService.invokeAny(Arrays.asList(task1, task2, task3));
 
         System.out.println(result);
+
+	executorService.shutdown();
     }
 }

@@ -32,5 +32,7 @@ public class InvokeAllExample {
             // The result is printed only after all the futures are complete. (i.e. after 5 seconds)
             System.out.println(future.get());
         }
+
+	executorService.shutdown();
     }
 }
