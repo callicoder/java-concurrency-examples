@@ -28,14 +28,14 @@ public class FutureCancelExample {
         }
 
         // Check if future is cancelled before retrieving the result
-        if(!future.isCancelled()) {
+//        if(!future.isCancelled()) {
             System.out.println("Task completed! Retrieving the result");
             // Future.get() blocks until the result is available
             String result = future.get();
             System.out.println(result);
-        } else {
-            System.out.println("Task was cancelled");
-        }
+//        } else {
+//            System.out.println("Task was cancelled");
+//        }
         executorService.shutdown();
     }
 

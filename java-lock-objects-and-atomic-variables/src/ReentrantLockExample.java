@@ -1,12 +1,12 @@
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by rajeevkumarsingh on 11/05/17.
  */
-
-public class ReentrantLockCounter {
+class ReentrantLockCounter {
     private final ReentrantLock lock = new ReentrantLock();
 
     private int count = 0;
@@ -24,7 +24,12 @@ public class ReentrantLockCounter {
         return count;
     }
 
-    public static void main(String[] args) {
+}
+
+
+public class ReentrantLockExample {
+
+    public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
         ReentrantLockCounter counter = new ReentrantLockCounter();
@@ -34,6 +39,7 @@ public class ReentrantLockCounter {
         }
 
         executorService.shutdown();
+        executorService.awaitTermination(60, TimeUnit.SECONDS);
 
         System.out.println("Final count is : " + counter.getCount());
     }

@@ -8,7 +8,6 @@ public class ExecutorsExample {
     public static void main(String[] args) {
         System.out.println("Inside : " + Thread.currentThread().getName());
 
-        // Create an executor service with a thread pool of size one
         System.out.println("Creating Executor Service...");
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -20,7 +19,12 @@ public class ExecutorsExample {
         System.out.println("Submit the task specified by the runnable to the executor service.");
         executorService.submit(runnable);
 
-        System.out.println("Shutting down the executor");
-        executorService.shutdown();
+        System.out.println("Creating another Runnable...");
+        Runnable runnable2 = () -> {
+            System.out.println("Executing second task inside : " + Thread.currentThread().getName());
+        };
+
+        System.out.println("Submitting second runnable.");
+        executorService.submit(runnable2);
     }
 }
