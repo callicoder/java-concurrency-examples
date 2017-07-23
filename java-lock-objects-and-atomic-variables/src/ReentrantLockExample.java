@@ -11,6 +11,7 @@ class ReentrantLockCounter {
 
     private int count = 0;
 
+    // Thread Safe Increment
     public void increment() {
         lock.lock();
         try {
@@ -30,11 +31,13 @@ class ReentrantLockCounter {
 public class ReentrantLockExample {
 
     public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
 
         ReentrantLockCounter counter = new ReentrantLockCounter();
 
-        for(int i = 0; i < 1000; i++) {
+        executorService.submit(() -> counter.increment());
+
+        for(int i = 0; i < 10; i++) {
             executorService.submit(() -> counter.increment());
         }
 

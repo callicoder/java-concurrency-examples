@@ -22,7 +22,7 @@ public class ThreadSleepExample {
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    throw new IllegalStateException(e);
                 }
             }
         };

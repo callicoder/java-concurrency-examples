@@ -10,7 +10,7 @@ public class ThreadJoinExample {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                throw new IllegalStateException(e);
             }
             System.out.println("Exiting Thread 1");
         });
@@ -21,7 +21,7 @@ public class ThreadJoinExample {
             try {
                 Thread.sleep(4000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                throw new IllegalStateException(e);
             }
             System.out.println("Exiting Thread 2");
         });
@@ -33,7 +33,7 @@ public class ThreadJoinExample {
         try {
             thread1.join(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            throw new IllegalStateException(e);
         }
 
         System.out.println("Waited enough! Starting Thread 2 now");
