@@ -1,6 +1,6 @@
 # Java Concurrency/Multithreading Examples
 
-## Releavant Tutorials
+## Relevant Tutorials
 
 1. [Java Concurrency / Multithreading Basics](https://www.callicoder.com/java-concurrency-multithreading-basics/)
 
@@ -11,3 +11,5 @@
 4. [Java Callable and Future Tutorial](https://www.callicoder.com/java-callable-and-future-tutorial/)
 
 5. [Java Concurrency issues and Synchronization](https://www.callicoder.com/java-concurrency-issues-and-thread-synchronization/)
+
+6. [Java Locks and Atomic Variables](https://www.callicoder.com/java-locks-and-atomic-variables-tutorial/)

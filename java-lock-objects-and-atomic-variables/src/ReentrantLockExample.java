@@ -45,5 +45,6 @@ public class ReentrantLockExample {
         executorService.awaitTermination(60, TimeUnit.SECONDS);
 
         System.out.println("Final count is : " + counter.getCount());
+
     }
 }
