@@ -28,9 +28,9 @@ public class AtomicIntegerExample {
             executorService.submit(() -> atomicCounter.incrementAndGet());
         }
 
-        System.out.println("Final Count is : " + atomicCounter.getCount());
-
         executorService.shutdown();
         executorService.awaitTermination(60, TimeUnit.SECONDS);
+
+        System.out.println("Final Count is : " + atomicCounter.getCount());
     }
 }
