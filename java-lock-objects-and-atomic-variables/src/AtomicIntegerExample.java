@@ -18,6 +18,7 @@ class AtomicCounter {
         return count.get();
     }
 }
+
 public class AtomicIntegerExample {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(2);

@@ -3,16 +3,16 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
-class ReentrantLockCounterIncrement {
+class ReentrantLockMethodsCounter {
     private final ReentrantLock lock = new ReentrantLock();
 
     private int count = 0;
 
     public int incrementAndGet() {
-        // Check if lock is currently acquired by any thread
+        // Check if the lock is currently acquired by any thread
         System.out.println("IsLocked : " + lock.isLocked());
 
-        // Check if lock is acquired by the current thread itself.
+        // Check if the lock is acquired by the current thread itself.
         System.out.println("IsHeldByCurrentThread : " + lock.isHeldByCurrentThread());
 
         // Try to acquire the lock
@@ -43,19 +43,18 @@ public class ReentrantLockMethodsExample {
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
-        ReentrantLockCounterIncrement lockCounterIncrement = new ReentrantLockCounterIncrement();
+        ReentrantLockMethodsCounter lockMethodsCounter = new ReentrantLockMethodsCounter();
 
         executorService.submit(() -> {
            System.out.println("IncrementCount (First Thread) : " +
-                   lockCounterIncrement.incrementAndGet() + "\n");
+                   lockMethodsCounter.incrementAndGet() + "\n");
         });
 
         executorService.submit(() -> {
             System.out.println("IncrementCount (Second Thread) : " +
-                    lockCounterIncrement.incrementAndGet() + "\n");
+                    lockMethodsCounter.incrementAndGet() + "\n");
         });
 
         executorService.shutdown();
-
     }
 }
