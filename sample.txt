@@ -1,3 +1,2 @@
 This is the git content,This is the local content,This is the local content again, This is the remote content
 
-This is from master_staging
